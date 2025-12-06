@@ -23,7 +23,7 @@ const app = express();
 const allowedOrigins = [
     'http://localhost:5000', // local dev
     'https://task-manager-2ah7.onrender.com', // deployed frontend
-    'https://task-manager-new-ochre.vercel.app/'
+    'https://task-manager-new-ochre.vercel.app'
     
 ];
 

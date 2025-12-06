@@ -13,7 +13,12 @@ connectDB();
 const app = express();
 
 // middleware
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:5000",
+  methods: "GET,POST,PUT,DELETE",
+  allowedHeaders: "Content-Type, Authorization",
+  credentials: true
+}));
 app.use(express.json());
 
 // routes

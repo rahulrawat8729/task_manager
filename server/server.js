@@ -22,7 +22,7 @@ const app = express();
 // app.use(express.json());
 const allowedOrigins = [
     'http://localhost:5000', // local dev
-    'https://task-manager-olive-theta.vercel.app' // deployed frontend
+    'https://task-manager-new-ochre.vercel.app/' // deployed frontend
 ];
 
 app.use(cors({

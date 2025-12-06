@@ -13,13 +13,32 @@ connectDB();
 const app = express();
 
 // middleware
+// app.use(cors({
+//   origin: "*",
+//   methods: "GET,POST,PUT,DELETE",
+//   allowedHeaders: "Content-Type, Authorization",
+//   credentials: true
+// }));
+// app.use(express.json());
+const allowedOrigins = [
+    'http://localhost:5000', // local dev
+    'https://task-manager-olive-theta.vercel.app' // deployed frontend
+];
+
 app.use(cors({
-  origin: "*",
-  methods: "GET,POST,PUT,DELETE",
-  allowedHeaders: "Content-Type, Authorization",
-  credentials: true
+    origin: function (origin, callback) {
+        if (!origin) return callback(null, true); // allow requests with no origin (Postman, server-to-server)
+        if (allowedOrigins.includes(origin)) {
+            callback(null, true); // allow this origin
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true
 }));
 app.use(express.json());
+
 
 // routes
 app.use('/api/auth', require('./routes/authRoutes'));

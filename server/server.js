@@ -14,7 +14,7 @@ const app = express();
 
 // middleware
 app.use(cors({
-  origin: "http://localhost:5000",
+  origin: "*",
   methods: "GET,POST,PUT,DELETE",
   allowedHeaders: "Content-Type, Authorization",
   credentials: true

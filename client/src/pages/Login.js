@@ -16,7 +16,7 @@ function Login() {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://task-manager-2ah7.onrender.com/api/auth/login', formData);
+      const res = await axios.post('https://task-manager-1-io9g.onrender.com/api/auth/login', formData);
       console.log(res.data);
       alert('Login successful!');
       localStorage.setItem('token', res.data.token); // save token for later
